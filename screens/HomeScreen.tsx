@@ -1,10 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+
+type RootStackParamsList = {
+  Home: undefined;
+  FoodPreferences: undefined;
+};
+
+type NavigationProps = NavigationProp<RootStackParamsList, "FoodPreferences">;
 
 export default function HomeScreen() {
-  const navigaton = useNavigation();
+  const navigaton = useNavigation<NavigationProps>();
 
   const handleFoodPreferencePress = () => {
     navigaton.navigate("FoodPreferences");

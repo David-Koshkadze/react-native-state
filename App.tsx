@@ -5,15 +5,23 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import FoodPreferences from "./screens/FoodPreferences";
 
-// Type Checking Screens
+import type { CompositeNavigationProp } from '@react-navigation/native';
+// import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import type { StackNavigationProp } from '@react-navigation/stack';
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+
 
 type StackParamList = {
   Home: undefined;
   FoodPreferences: undefined;
 };
 
-const Stack = createStackNavigator<StackParamList>();
+// Type Checking Screens
+
+export type StackProps = NativeStackScreenProps<StackParamList, "FoodPreferences">
+
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
